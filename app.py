@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import api
+import api2
 app = Flask(__name__)
 print("Flask app is starting")
 
@@ -16,7 +16,7 @@ def getdata():
     data = request.json
     subreddit = data.get('subreddit')
     word = data.get('word')
-    result = api.datacheck(subreddit, word)    
+    result = api2.datacheck(subreddit, word)    
     return result  
 
 

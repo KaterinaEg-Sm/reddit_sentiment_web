@@ -27,7 +27,7 @@
         </div>
 
         <div class="row col-6 mx-auto">
-            <input class="form-control" type="text" id="subreddit_input">
+            <input class="form-control" type="text" id="subreddit_input" placeholder="Cars">
         </div>
 
         <div class="mt-2">
@@ -35,7 +35,7 @@
         </div>
 
         <div class="row col-6 mx-auto">
-            <input class="form-control" type="text" id="word_input">
+            <input class="form-control" type="text" id="word_input" placeholder="Ford">
         </div>
 
 
@@ -56,13 +56,16 @@
             <h5 class="m-0">Posts</h5>
             <img id="Selftext_chart" class="w-100">
 
-            <h5 class="mt-4">General Sentiment</h5>
-            <div id="Result_text"></div>
+            <h5 class="mt-4">General Posts Sentiment</h5>
+            <div id="Result_text_posts"></div>
         </div>
 
         <div class="col-lg-6 mx-auto">
             <h5 class="m-0">Comments</h5>
             <img id="Comment_chart" class="w-100">
+
+            <h5 class="mt-4">General Comments Sentiment</h5>
+            <div id="Result_text"></div>
 
         </div>
 </div>
@@ -78,9 +81,9 @@
         <h2 id="Top_words" style="white-space: break-spaces"></h2>
     </div>
 
-    <div class="col-lg-6 mx-auto">
-            <img  src="\static\siteimage.png" class="w-100"/>
-    </div>
+   <!-- <div class="col-lg-6 mx-auto"> -->
+            <!-- <img  id="Wordcloud_chart" class="w-100"/> -->
+    <!-- </div> -->
 
 </div>
      
@@ -119,10 +122,12 @@ function Get_Data(){
             CallResult = result;
             console.log(result);
             document.getElementById('Result_text').innerHTML= result.attitude_result;
+            document.getElementById('Result_text_posts').innerHTML= result.attitude_result_post;
             Top5Words = result.topwords_1 + '\n' +result.topwords_2 + '\n' + result.topwords_3 + '\n'+ result.topwords_4 + '\n' + result.topwords_5
             document.getElementById('Top_words').innerHTML= Top5Words;
             document.getElementById('Selftext_chart').src = '/static/images/chart_1.png?'+ new Date().getTime()
             document.getElementById('Comment_chart').src = '/static/images/chart_2.png?'+ new Date().getTime()
+            // document.getElementById('Wordcloud_chart').src = '/static/images/wordcloud_1.png?'+ new Date().getTime()
             document.getElementById('result_panel').style.display = 'block';
             document.getElementById('btn_submit').innerText='Submit'
             document.getElementById('btn_submit').disabled=false
