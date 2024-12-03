@@ -1,4 +1,4 @@
-IN PROGRESS
+A website to analyze sentiment related to a brand or any keyword within a specific subreddit, determining whether the overall sentiment is positive or negative, and identifying the most frequently used words.
 
 
 # reddit_sentiment_web
